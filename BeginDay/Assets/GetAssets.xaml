@@ -6,11 +6,13 @@
     <x:Property Name="out_coxPassword" Type="OutArgument(ss:SecureString)" />
     <x:Property Name="out_SRPUsername" Type="OutArgument(x:String)" />
     <x:Property Name="out_SRPPassword" Type="OutArgument(ss:SecureString)" />
+    <x:Property Name="out_navientUsername" Type="OutArgument(x:String)" />
+    <x:Property Name="out_navientPassword" Type="OutArgument(ss:SecureString)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1208,605</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1208,855</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetAssets_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -66,9 +68,10 @@
       <AssemblyReference>System.Memory</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetAssets" sap:VirtualizedContainerService.HintSize="376,540" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetAssets" sap:VirtualizedContainerService.HintSize="376,790" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -78,5 +81,7 @@
     <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="HughesCredentials" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[out_hughesPassword]" Username="[out_hughesUsername]" />
     <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="CoxCredentials" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[out_coxPassword]" Username="[out_coxUsername]" />
     <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="SRPCredentials" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_3" Password="[out_SRPPassword]" Username="[out_SRPUsername]" />
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="NavientCredential" DisplayName="Get Credential" sap:VirtualizedContainerService.HintSize="334,79" sap2010:WorkflowViewState.IdRef="GetRobotCredential_4" Password="[out_navientPassword]" Username="[out_navientUsername]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Asset Retrieval Complete&quot;]" />
   </Sequence>
 </Activity>

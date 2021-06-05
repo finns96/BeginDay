@@ -7,6 +7,8 @@
     <x:Property Name="in_coxLastPayment" Type="InArgument(x:String)" />
     <x:Property Name="in_SRPBalance" Type="InArgument(x:String)" />
     <x:Property Name="in_SRPPaymentStatus" Type="InArgument(x:String)" />
+    <x:Property Name="in_navientPaymentDue" Type="InArgument(x:String)" />
+    <x:Property Name="in_navientAutoPayMessage" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -69,7 +71,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="ShowData" sap:VirtualizedContainerService.HintSize="376,349" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="ShowData" sap:VirtualizedContainerService.HintSize="376,448" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -78,5 +80,6 @@
     <ui:MessageBox ChosenButton="{x:Null}" Caption="Hughes Info" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[&quot;Checking: &quot;+in_hughesChecking+&quot; Savings: &quot;+in_hughesSavings+&quot; Credit Card: &quot;+in_hughesCreditCard]" />
     <ui:MessageBox ChosenButton="{x:Null}" Caption="Cox Info" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;Current Balance: &quot;+in_coxCurrentBalance+&quot; Last Payment: &quot;+in_coxLastPayment]" />
     <ui:MessageBox ChosenButton="{x:Null}" Caption="SRP Info" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;SRP Balance: &quot;+in_SRPBalance+&quot; SRP Payment Status: &quot;+in_SRPPaymentStatus]" />
+    <ui:MessageBox ChosenButton="{x:Null}" Caption="Navient Info" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;Total Payment Due: &quot;+in_navientPaymentDue+&quot; Auto Pay Message: &quot;+in_navientAutoPayMessage]" />
   </Sequence>
 </Activity>
