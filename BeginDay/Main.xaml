@@ -4,6 +4,15 @@
     <x:Property Name="io_hughesPassword" Type="InOutArgument(ss:SecureString)" />
     <x:Property Name="io_coxUsername" Type="InOutArgument(x:String)" />
     <x:Property Name="io_coxPassword" Type="InOutArgument(ss:SecureString)" />
+    <x:Property Name="io_SRPUsername" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_SRPPassword" Type="InOutArgument(ss:SecureString)" />
+    <x:Property Name="io_hughesChecking" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_hughesSavings" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_hughesCreditCard" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_coxCurrentBalance" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_coxLastPayment" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_SRPBalance" Type="InOutArgument(x:String)" />
+    <x:Property Name="io_SRPPaymentStatus" Type="InOutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -106,6 +115,12 @@
           <OutArgument x:TypeArguments="ss:SecureString" x:Key="out_coxPassword">
             <mva:VisualBasicReference x:TypeArguments="ss:SecureString" ExpressionText="io_coxPassword" />
           </OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="out_SRPUsername">
+            <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_SRPUsername" />
+          </OutArgument>
+          <OutArgument x:TypeArguments="ss:SecureString" x:Key="out_SRPPassword">
+            <mva:VisualBasicReference x:TypeArguments="ss:SecureString" ExpressionText="io_SRPPassword" />
+          </OutArgument>
         </ui:InvokeWorkflowFile.Arguments>
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -121,7 +136,7 @@
               <av:Size x:Key="ShapeSize">200,66</av:Size>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="FirefoxAutomation" sap:VirtualizedContainerService.HintSize="376,660" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Sequence DisplayName="FirefoxAutomation" sap:VirtualizedContainerService.HintSize="376,1572" sap2010:WorkflowViewState.IdRef="Sequence_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -129,32 +144,97 @@
             </sap:WorkflowViewStateService.ViewState>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Login workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Firefox\Hughes\hughesLogin.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="in_username">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_hughesUsername" />
-                </InArgument>
-                <InArgument x:TypeArguments="ss:SecureString" x:Key="in_password">
-                  <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="io_hughesPassword" />
-                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_username">[io_hughesUsername]</InArgument>
+                <InArgument x:TypeArguments="ss:SecureString" x:Key="in_password">[io_hughesPassword]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetHughesInfo workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Firefox\Hughes\GetHughesInfo.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                <OutArgument x:TypeArguments="x:String" x:Key="out_hughesChecking">
+                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_hughesChecking" />
+                </OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_hughesSavings">
+                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_hughesSavings" />
+                </OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_hughesCreditCard">
+                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_hughesCreditCard" />
+                </OutArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke coxLogin workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Firefox\Cox\coxLogin.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InArgument x:TypeArguments="x:String" x:Key="in_coxUsername">
-                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_coxUsername" />
+                <InArgument x:TypeArguments="x:String" x:Key="in_coxUsername">[io_coxUsername]</InArgument>
+                <InArgument x:TypeArguments="ss:SecureString" x:Key="in_coxPassword">[io_coxPassword]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetCoxInfo workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_6" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Firefox\Cox\GetCoxInfo.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_coxCurrentBalance">
+                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_coxCurrentBalance" />
+                </OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_coxLastPayment">
+                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_coxLastPayment" />
+                </OutArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SRPLogin workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_8" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Firefox\SRP\SRPLogin.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_SRPUsername">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_SRPUsername" />
                 </InArgument>
-                <InArgument x:TypeArguments="ss:SecureString" x:Key="in_coxPassword">
-                  <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="io_coxPassword" />
+                <InArgument x:TypeArguments="ss:SecureString" x:Key="in_SRPPassword">
+                  <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="io_SRPPassword" />
                 </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
-            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Firefox\Hughes\hughesLogout.xaml">
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke GetSRPInfo workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_10" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Firefox\SRP\GetSRPInfo.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_SRPBalance">
+                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_SRPBalance" />
+                </OutArgument>
+                <OutArgument x:TypeArguments="x:String" x:Key="out_SRPPaymentStatus">
+                  <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_SRPPaymentStatus" />
+                </OutArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke hughesLogout File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Firefox\Hughes\hughesLogout.xaml">
               <ui:InvokeWorkflowFile.Arguments>
                 <scg:Dictionary x:TypeArguments="x:String, Argument" />
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke coxLogout workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_7" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Firefox\Cox\coxLogout.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke SRPLogout workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_11" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Firefox\SRP\SRPLogout.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <scg:Dictionary x:TypeArguments="x:String, Argument" />
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ShowData workflow" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_9" LogEntry="No" LogExit="No" UnSafe="False" WorkflowFileName="Functions\ShowData.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_hughesChecking">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_hughesChecking" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_hughesSavings">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_hughesSavings" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_hughesCreditCard">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_hughesCreditCard" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_coxCurrentBalance">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_coxCurrentBalance" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_coxLastPayment">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_coxLastPayment" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_SRPBalance">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_SRPBalance" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_SRPPaymentStatus">
+                  <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="io_SRPPaymentStatus" />
+                </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>

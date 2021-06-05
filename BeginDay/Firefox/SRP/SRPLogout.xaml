@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="coxLogout" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1208,571" sap2010:WorkflowViewState.IdRef="coxLogout_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SRPLogout" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1208,571" sap2010:WorkflowViewState.IdRef="SRPLogout_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -47,13 +47,13 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="coxLogout" sap:VirtualizedContainerService.HintSize="376,490" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SRPLogout" sap:VirtualizedContainerService.HintSize="376,344" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  pf-signin-trigger'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="True">
+    <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  https://myaccount.sr...'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
       <ui:Click.CursorPosition>
         <ui:CursorPosition Position="Center">
           <ui:CursorPosition.OffsetX>
@@ -65,7 +65,7 @@
         </ui:CursorPosition>
       </ui:Click.CursorPosition>
       <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="f772685b-7754-405b-86ba-951816c17d4b" InformativeScreenshot="db0057d4e88afc16dfd35410f57cbf83" Selector="&lt;html app='firefox.exe' title='My Account Overview | Cox Communications' /&gt;&lt;webctrl id='pf-signin-trigger' tag='A' /&gt;">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="73a075ab-e358-4803-8706-d556a198bd6b" InformativeScreenshot="db1114fb4ffe71f6874b69b61f0b506d" Selector="&lt;html app='firefox.exe' title='Dashboard | SRP Power' /&gt;&lt;webctrl aaname='Log Out' parentid='srp-shared-menu' tag='A' /&gt;">
           <ui:Target.TimeoutMS>
             <InArgument x:TypeArguments="x:Int32" />
           </ui:Target.TimeoutMS>
@@ -75,28 +75,6 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
-    <ui:Click AlterIfDisabled="{x:Null}" CursorMotionType="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'SPAN'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="True">
-      <ui:Click.CursorPosition>
-        <ui:CursorPosition Position="Center">
-          <ui:CursorPosition.OffsetX>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:CursorPosition.OffsetX>
-          <ui:CursorPosition.OffsetY>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:CursorPosition.OffsetY>
-        </ui:CursorPosition>
-      </ui:Click.CursorPosition>
-      <ui:Click.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="e08d5cb1-3ad3-461b-bcff-b4a0e266ac40" InformativeScreenshot="a8ae3f80e04b421fec5f46ce513296b0" Selector="&lt;html app='firefox.exe' title='My Account Overview | Cox Communications' /&gt;&lt;webctrl aaname='                 Sign Out             ' parentid='pf-header' tag='SPAN' /&gt;">
-          <ui:Target.TimeoutMS>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:Target.TimeoutMS>
-          <ui:Target.WaitForReady>
-            <InArgument x:TypeArguments="ui:WaitForReady" />
-          </ui:Target.WaitForReady>
-        </ui:Target>
-      </ui:Click.Target>
-    </ui:Click>
-    <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" DisplayName="Close Window 'firefox.exe Cox'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="fcf913096f238521338a364ed1ac93ac" Selector="&lt;html app='firefox.exe' title='Cox Login - Sign Into Your Cox Account' /&gt;" WaitForReady="INTERACTIVE" />
+    <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" DisplayName="Close Window 'firefox.exe Login'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="c57859f0b1da0724dc9d17c58335ca9b" Selector="&lt;html app='firefox.exe' title='Login | SRP My Account' /&gt;" WaitForReady="INTERACTIVE" />
   </Sequence>
 </Activity>

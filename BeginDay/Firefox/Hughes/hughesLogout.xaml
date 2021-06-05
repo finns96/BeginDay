@@ -47,7 +47,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="hughesLogout" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="hughesLogout" sap:VirtualizedContainerService.HintSize="376,344" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -75,5 +75,6 @@
         </ui:Target>
       </ui:Click.Target>
     </ui:Click>
+    <ui:CloseWindow TimeoutMS="{x:Null}" UseWindow="{x:Null}" DisplayName="Close Window 'firefox.exe Logged'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="CloseWindow_1" InformativeScreenshot="27659fe923c7262ff90a57498e5f7ffd" Selector="&lt;html app='firefox.exe' title='Logged Out - HFCU' /&gt;" WaitForReady="INTERACTIVE" />
   </Sequence>
 </Activity>

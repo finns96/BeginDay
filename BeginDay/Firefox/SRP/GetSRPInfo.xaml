@@ -1,16 +1,15 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="GetHughesInfo" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="GetSRPInfo" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="out_hughesChecking" Type="OutArgument(x:String)" />
-    <x:Property Name="out_hughesSavings" Type="OutArgument(x:String)" />
-    <x:Property Name="out_hughesCreditCard" Type="OutArgument(x:String)" />
+    <x:Property Name="out_SRPBalance" Type="OutArgument(x:String)" />
+    <x:Property Name="out_SRPPaymentStatus" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
   <sap:VirtualizedContainerService.HintSize>1208,571</sap:VirtualizedContainerService.HintSize>
-  <sap2010:WorkflowViewState.IdRef>GetHughesInfo_1</sap2010:WorkflowViewState.IdRef>
+  <sap2010:WorkflowViewState.IdRef>GetSRPInfo_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="21">
+    <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -32,10 +31,10 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
-    </scg:List>
+    </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="34">
+    <sco:Collection x:TypeArguments="AssemblyReference">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -62,17 +61,18 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
-    </scg:List>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetHughesInfo" sap:VirtualizedContainerService.HintSize="376,490" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetSRPInfo" sap:VirtualizedContainerService.HintSize="376,344" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Checking" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Balance" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
       <ui:GetValue.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="0f648ba9-eb1b-4654-b361-82b2589bb0e1" InformativeScreenshot="5946806e207299f212b1a0cb72eeaf46" Selector="&lt;html app='firefox.exe' title='Home Page' /&gt;&lt;webctrl omit:src='https://widgets.moneydesktop.com/md/accounts/1A7pck9t9b4Adts265v*' tag='IFRAME' /&gt;&lt;webctrl tag='SPAN' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button&amp;gt;div&amp;gt;span' idx='1' /&gt;">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="26defa41-5729-4778-a465-7c6d069acbd9" InformativeScreenshot="5f23820f9c2b3bfea1c1486d1de45290" Selector="&lt;html app='firefox.exe' title='Dashboard | SRP Power' /&gt;&lt;webctrl aaname='$129.65' parentid='app' tag='DIV' /&gt;">
           <ui:Target.TimeoutMS>
             <InArgument x:TypeArguments="x:Int32" />
           </ui:Target.TimeoutMS>
@@ -82,12 +82,12 @@
         </ui:Target>
       </ui:GetValue.Target>
       <ui:GetValue.Value>
-        <OutArgument x:TypeArguments="x:String">[out_hughesChecking]</OutArgument>
+        <OutArgument x:TypeArguments="x:String">[out_SRPBalance]</OutArgument>
       </ui:GetValue.Value>
     </ui:GetValue>
-    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Savings" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_2">
+    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Payment Status" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_2">
       <ui:GetValue.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="4286271c-3e6e-4839-8182-cf168f66067d" InformativeScreenshot="2377f5f469e485702ef2de0fa90443c5" Selector="&lt;html app='firefox.exe' title='Home Page' /&gt;&lt;webctrl omit:src='https://widgets.moneydesktop.com/md/accounts/kgtwn8ddc3p9c00cA7x*' tag='IFRAME' /&gt;&lt;webctrl tag='SPAN' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button&amp;gt;div&amp;gt;span' idx='2' /&gt;">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="505fc947-dbe3-419a-b039-7ca88a7c4459" InformativeScreenshot="a43cd98c5842fe3d414e61e45c5461fd" Selector="&lt;html app='firefox.exe' title='Dashboard | SRP Power' /&gt;&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div' idx='3' parentid='app' tag='DIV' /&gt;">
           <ui:Target.TimeoutMS>
             <InArgument x:TypeArguments="x:Int32" />
           </ui:Target.TimeoutMS>
@@ -97,22 +97,7 @@
         </ui:Target>
       </ui:GetValue.Target>
       <ui:GetValue.Value>
-        <OutArgument x:TypeArguments="x:String">[out_hughesSavings]</OutArgument>
-      </ui:GetValue.Value>
-    </ui:GetValue>
-    <ui:GetValue ContinueOnError="{x:Null}" DisplayName="CreditCard" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_3">
-      <ui:GetValue.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="ee785ce1-38e5-4689-867c-7e78d6b4bc12" InformativeScreenshot="66c09ac48205b5278b7da7e57fc3837d" Selector="&lt;html app='firefox.exe' title='Home Page' /&gt;&lt;webctrl omit:src='https://widgets.moneydesktop.com/md/accounts/p3j0tnzdk9hnj6j86Aw*' tag='IFRAME' /&gt;&lt;webctrl tag='SPAN' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button&amp;gt;div&amp;gt;span' idx='6' /&gt;">
-          <ui:Target.TimeoutMS>
-            <InArgument x:TypeArguments="x:Int32" />
-          </ui:Target.TimeoutMS>
-          <ui:Target.WaitForReady>
-            <InArgument x:TypeArguments="ui:WaitForReady" />
-          </ui:Target.WaitForReady>
-        </ui:Target>
-      </ui:GetValue.Target>
-      <ui:GetValue.Value>
-        <OutArgument x:TypeArguments="x:String">[out_hughesCreditCard]</OutArgument>
+        <OutArgument x:TypeArguments="x:String">[out_SRPPaymentStatus]</OutArgument>
       </ui:GetValue.Value>
     </ui:GetValue>
   </Sequence>
